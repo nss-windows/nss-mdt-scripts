@@ -1,4 +1,28 @@
-﻿## List of Apps to Remove
+﻿<#
+.SYNOPSIS
+Removes a list of pre-installed UWP applications.
+
+.DESCRIPTION
+During deployment of Win10, there are many UWP applications that are installed. This script removes these applications from the system. The list has been updated for Window 10 v1909.
+
+.NOTES
+Name            : Remove-BuiltInApps.ps1
+Author          : Darren Hollinrake
+Version         : 1.0
+Date Created    : 2020-03-31
+Date Updated    : 2020-05-21
+
+MDT Use:
+Add to the task sequence during the 'State Restore' portion.
+
+Add a new task: Add->General->Run PowerShell Script
+Type: PowerShell Script
+Name: Remove Built-In Apps
+PowerShell script: %SCRIPTROOT%\nss-mdt-scripts\Removal\Remove-BuiltInApps.ps1
+
+#>
+
+## List of Apps to Remove
 $AppsList = "Microsoft.BingWeather",
             "Microsoft.Getstarted",
             "Microsoft.Messaging",

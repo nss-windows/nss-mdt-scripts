@@ -22,7 +22,16 @@ Name       : Set-DEP.ps1
 Author     : Darren Hollinrake
 Version    : 1.0
 DateCreated: 2018-02-20
-DateUpdated: 2020-03-24
+DateUpdated: 2020-05-21
+
+MDT Use:
+Add to the task sequence during the 'State Restore' portion.
+
+Add a new task: Add->General->Run PowerShell Script
+Type: PowerShell Script
+Name: Set DEP
+PowerShell script: %SCRIPTROOT%\nss-mdt-scripts\Set\Set-DEP.ps1
+
 #>
 $LogPath = "C:\NSS\Logs\"
 If (!(Test-Path "$LogPath")) {New-Item -ItemType Directory -Force -Path "$LogPath"}
