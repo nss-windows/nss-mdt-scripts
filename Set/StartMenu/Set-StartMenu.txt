@@ -1,0 +1,14 @@
+ReadMe - Set-StartMenu.ps1
+
+In the task sequence, we need to create the following task under: "State Restore->Custom Tasks->Apply Custom Settings"
+
+This 'Custom Tasks' group should should be located after Windows Update (Post-Application Installtion) and within the 'Custom Tasks' group, it should be located below the 'Copy Files Locally' group.
+
+Add a new task: Add->General->Run PowerShell Script
+Type: PowerShell Script
+Name: Customize the Start Menu
+PowerShell script: %SCRIPTROOT%\Genera\StartMenu\Set-StartMenu.ps1
+
+
+You can create a new custom layout by running the following PowerShell command on a like machine. Set the layout to the desired configuration then run:
+Export-StartLayout somename.xml
