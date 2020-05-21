@@ -22,7 +22,16 @@ Name       : Remove-PowerShellV2.ps1
 Author     : Darren Hollinrake
 Version    : 1.0
 DateCreated: 2018-02-20
-DateUpdated: 2020-03-24
+DateUpdated: 2020-05-21
+
+MDT Use:
+Add to the task sequence during the 'State Restore' portion.
+
+Add a new task: Add->General->Run PowerShell Script
+Type: PowerShell Script
+Name: Remove PoSh v2
+PowerShell script: %SCRIPTROOT%\nss-mdt-scripts\Removal\Remove-PowerShellV2.ps1
+
 #>
 
 ###############

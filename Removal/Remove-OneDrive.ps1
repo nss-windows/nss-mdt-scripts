@@ -1,4 +1,28 @@
-﻿# Remove the OneDrive installer and the registry key that tells it to run once.
+﻿<#
+.SYNOPSIS
+Removes OneDrive from the system and prevents it from installing on a per-user basis.
+
+.DESCRIPTION
+This script will remove OneDrive from the system and prevent the per-user installation. First, it will attempt to uninstall OneDrive from the current system. It will then delete the installer and remove the OneDriveSetup script from running for each user. Next, it will remove the Start Menu and Explorer links and scheduled task from the system.
+
+.NOTES
+Name            : Remove-OneDrive.ps1
+Author          : Darren Hollinrake
+Version         : 0.9
+Date Created    : 2019-02-24
+Date Updated    : 2020-05-21
+
+MDT Use:
+Add to the task sequence during the 'State Restore' portion.
+
+Add a new task: Add->General->Run PowerShell Script
+Type: PowerShell Script
+Name: Remove OneDrive
+PowerShell script: %SCRIPTROOT%\nss-mdt-scripts\Removal\Remove-OneDrive.ps1
+
+#>
+
+# Remove the OneDrive installer and the registry key that tells it to run once.
 
 # Stop the OneDrive process so we can uninstall it
 Get-Process -Name "OneDrive" | Stop-Process

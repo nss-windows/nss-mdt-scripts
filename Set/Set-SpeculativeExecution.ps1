@@ -12,7 +12,15 @@ Name       : Set-SpeculativeExecution.ps1
 Author     : Darren Hollinrake
 Version    : 1.0
 DateCreated: 2020-03-20
-DateUpdated: 
+DateUpdated: 2020-05-21
+
+MDT Use:
+Add to the task sequence during the 'State Restore' portion.
+
+Add a new task: Add->General->Run PowerShell Script
+Type: PowerShell Script
+Name: Set Speculative Execution Mitigation
+PowerShell script: %SCRIPTROOT%\nss-mdt-scripts\Set\Set-SpeculativeExecution.ps1
 
 #>
 

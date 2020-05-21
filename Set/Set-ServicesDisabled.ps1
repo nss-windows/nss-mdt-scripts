@@ -8,17 +8,25 @@ The script changes the startup type to "Disabled" for a list of services. This s
 .NOTES   
 Name       : Set-ServicesDisabled.ps1
 Author     : Darren Hollinrake
-Version    : 1.2
+Version    : 1.3
 DateCreated: 2018-02-20
-DateUpdated: 2019-06-12
+DateUpdated: 2020-05-21
 
-Added additional services to the list.
+v1.3
+Commented out "dmwappushservice" and "wlidsvc". When these services are disabled, the first boot after installation is extremely slow.
 
 ***Customization***
 If additional services need to be disabled, add them to the $Services array.
 
 https://docs.microsoft.com/en-us/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server
 
+MDT Use:
+Add to the task sequence during the 'State Restore' portion.
+
+Add a new task: Add->General->Run PowerShell Script
+Type: PowerShell Script
+Name: Set Services Disabled
+PowerShell script: %SCRIPTROOT%\nss-mdt-scripts\Set\Set-ServicesDisabled.ps1
 
 #>
 
